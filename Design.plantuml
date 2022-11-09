@@ -1,0 +1,39 @@
+@startuml design sprint 1
+
+package "3 Tier achitecture" {
+    package "Presentation Layer" as preslayer{
+        package "Frontend" as frontend{
+            class Login
+            class Choose_Home
+            class Landingpage 
+            class Edit_Task
+            class Spawn_Task
+        }
+        
+    }
+
+    package "Application Layer" as applayer{
+        package "Firebase Server" as server{}
+        package "User Accounting" as admin{
+            class Home 
+            class User 
+        }
+    }
+
+    package "Data Layer" as datalayer{
+
+        package "Firebase Realtime Database" as DB <<Database>> {
+
+        }
+    }
+
+     package "Firebase Service" as service <<Cloud>> {
+
+    }
+
+}
+
+preslayer ..up..> applayer
+applayer ..up..> datalayer
+applayer ..right..> service
+@enduml 
