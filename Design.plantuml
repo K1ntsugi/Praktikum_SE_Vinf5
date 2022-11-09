@@ -1,6 +1,6 @@
 @startuml design sprint 1
 
-package "3 Tier achitecture" {
+package "N-Tier achitecture" {
     package "Presentation Layer" as preslayer{
         package "Frontend" as frontend{
             class Login
