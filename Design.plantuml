@@ -2,14 +2,20 @@
 
 package "N-Tier achitecture" {
     package "Presentation Layer" as preslayer{
-        package "Frontend" as frontend{
+        package "Account" as frontend{
             class Login
             class Choose_Home
+        }
+
+        package "Main" as MN {
             class Landingpage 
+        }
+        
+        package "Editing" as edit {
             class Edit_Task
             class Spawn_Task
         }
-        
+            
     }
 
     package "Application Layer" as applayer{
@@ -18,6 +24,8 @@ package "N-Tier achitecture" {
             class Home 
             class User 
         }
+
+        package "Animal_Accounting" as animalAdmin {}
     }
 
     package "Data Layer" as datalayer{
@@ -33,7 +41,7 @@ package "N-Tier achitecture" {
 
 }
 
-preslayer ..up..> applayer
+preslayer ...up..> applayer
 applayer ..up..> datalayer
 applayer ..right..> service
 @enduml 
